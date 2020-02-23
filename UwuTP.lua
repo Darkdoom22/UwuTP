@@ -168,6 +168,8 @@ defaults.p5.bg.red = 3
 defaults.p5.bg.green = 1
 defaults.p5.bg.blue = 1
 
+
+
 defaults.enemy = {}
 defaults.enemy.pos = {}
 defaults.enemy.stroke = {}
@@ -204,7 +206,6 @@ text_box4 = texts.new(settings.p2)
 text_box5 = texts.new(settings.p3)
 text_box6 = texts.new(settings.p4)
 text_box7 = texts.new(settings.p5)
-
 
 
 function round(num, numDecimalPlaces)
@@ -322,6 +323,10 @@ function DisplayBox()
     text_box3:text(new_text3)
     text_box3:visible(true)
     
+    elseif p1_name == nil then
+    
+    text_box3:visible(false)
+    
     end
     
     if p2_name ~= nil then
@@ -334,6 +339,10 @@ function DisplayBox()
     
     text_box4:text(new_text4)
     text_box4:visible(true)
+  
+    elseif p2_name == nil then
+  
+    text_box4:visible(false)
   
     end  
   
@@ -348,6 +357,10 @@ function DisplayBox()
     text_box5:text(new_text5)
     text_box5:visible(true)
  
+    elseif p3_name == nil then
+    
+    text_box5:visible(false)
+    
     end  
   
     if p4_name ~= nil then
@@ -360,6 +373,10 @@ function DisplayBox()
     
     text_box6:text(new_text6)
     text_box6:visible(true)
+    
+    elseif p4_name == nil then
+    
+    text_box6:visible(false)
     
     end  
   
@@ -374,6 +391,10 @@ function DisplayBox()
     text_box7:text(new_text7)
     text_box7:visible(true)
   
+    elseif p5_name == nil then
+    
+    text_box7:visible(false)
+    
     end  
   
     if hpp < 33 then
@@ -394,61 +415,74 @@ function DisplayBox()
     
     end  
     
+    if p1_hpp ~= nil then
 
-    if p1_hpp < 33 then
+      if p1_hpp < 33 and p1_hpp ~= nil then
     
-    text_box3:color(244, 40, 40)
+      text_box3:color(244, 40, 40)
     
-    elseif p1_tp > 1000 then
+      elseif p1_tp > 1000 then
     
-    text_box3:color(177, 75, 251)
+      text_box3:color(177, 75, 251)
     
-    elseif p1_tp < 1000 and p1_mpp > 20 then
+      elseif p1_tp < 1000 and p1_mpp > 20 then
     
-    text_box3:color(119, 247, 237)
+      text_box3:color(119, 247, 237)
     
-    elseif p1_mpp < 20 and p1_tp < 1000 then
+      elseif p1_mpp < 20 and p1_tp < 1000 then
     
-    text_box3:color(235, 158, 25)
+      text_box3:color(235, 158, 25)
     
-    end  
-    
-    if p2_hpp < 33 then
-    
-    text_box4:color(244, 40, 40)
-    
-    elseif p2_tp > 1000 then
-    
-    text_box4:color(177, 75, 251)
-    
-    elseif p2_tp < 1000 and p2_mpp > 20 then
-    
-    text_box4:color(119, 247, 237)
-    
-    elseif p2_mpp < 20 and p2_tp < 1000 then
-    
-    text_box4:color(235, 158, 25)
-    
-    end  
-    
-    if p3_hpp < 33 then
-    
-    text_box5:color(244, 40, 40)
-    
-    elseif p3_tp > 1000 then
-    
-    text_box5:color(177, 75, 251)
-    
-    elseif p3_tp < 1000 and p3_mpp > 20 then
-    
-    text_box5:color(119, 247, 237)
-    
-    elseif p3_mpp < 20 and p3_tp < 1000 then
-    
-    text_box5:color(235, 158, 25)
+      end  
     
     end
     
+    if p2_hpp ~= nil then
+      
+      if p2_hpp < 33 then
+    
+      text_box4:color(244, 40, 40)
+    
+      elseif p2_tp > 1000 then
+    
+      text_box4:color(177, 75, 251)
+    
+      elseif p2_tp < 1000 and p2_mpp > 20 then
+    
+      text_box4:color(119, 247, 237)
+    
+      elseif p2_mpp < 20 and p2_tp < 1000 then
+    
+      text_box4:color(235, 158, 25)
+    
+      end  
+    
+    end
+    
+    if p3_hpp ~= nil then
+      
+      if p3_hpp < 33 then
+    
+      text_box5:color(244, 40, 40)
+    
+      elseif p3_tp > 1000 then
+    
+      text_box5:color(177, 75, 251)
+    
+      elseif p3_tp < 1000 and p3_mpp > 20 then
+    
+      text_box5:color(119, 247, 237)
+    
+      elseif p3_mpp < 20 and p3_tp < 1000 then
+    
+      text_box5:color(235, 158, 25)
+    
+      end
+   
+   end 
+   
+   if p4_hpp ~= nil then
+   
     if p4_hpp < 33 then
     
     text_box6:color(244, 40, 40)
@@ -465,8 +499,12 @@ function DisplayBox()
     
     text_box6:color(235, 158, 25)
     
-    end
+  end
+  
+  end
     
+    if p5_hpp ~= nil then
+      
     if p5_hpp < 33 then
     
     text_box7:color(244, 40, 40)
@@ -484,7 +522,7 @@ function DisplayBox()
     text_box7:color(235, 158, 25)
     
     end
-    
+   end 
 
     text_box:text(new_text)
     text_box:visible(true)
