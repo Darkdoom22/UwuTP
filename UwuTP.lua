@@ -204,7 +204,7 @@ text_box4 = texts.new(settings.p2)
 text_box5 = texts.new(settings.p3)
 text_box6 = texts.new(settings.p4)
 text_box7 = texts.new(settings.p5)
-text_box8 = texts.new(settings.p6)
+
 
 
 function round(num, numDecimalPlaces)
