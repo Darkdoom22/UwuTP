@@ -1,4 +1,4 @@
-_addon.name = "EnemyInfo"
+_addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
 _addon.version = "1.0"
 
