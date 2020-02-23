@@ -238,6 +238,7 @@ function getinfo()
   tp = CharacterInfo.vitals.tp
   status = CharacterInfo.status
   name = CharacterInfo.name
+  zone = CurrentInfo.zone
   
   local PartyInfo = windower.ffxi.get_party()
     
@@ -247,6 +248,7 @@ function getinfo()
     p1_hpp = PartyInfo.p1.hpp
     p1_mpp = PartyInfo.p1.mpp
     p1_name = PartyInfo.p1.name
+    p1_zone = PartyInfo.p1.zone
     
     end
     
@@ -323,7 +325,9 @@ function DisplayBox()
     text_box3:text(new_text3)
     text_box3:visible(true)
     
-    elseif p1_name == nil then
+    end
+    
+    if p1_zone ~= zone then
     
     text_box3:visible(false)
     
@@ -340,7 +344,9 @@ function DisplayBox()
     text_box4:text(new_text4)
     text_box4:visible(true)
   
-    elseif p2_name == nil then
+    end
+    
+    if p2_zone ~= zone then
   
     text_box4:visible(false)
   
@@ -357,7 +363,9 @@ function DisplayBox()
     text_box5:text(new_text5)
     text_box5:visible(true)
  
-    elseif p3_name == nil then
+    end
+    
+    if p3_zone ~= zone then
     
     text_box5:visible(false)
     
@@ -374,7 +382,9 @@ function DisplayBox()
     text_box6:text(new_text6)
     text_box6:visible(true)
     
-    elseif p4_name == nil then
+    end
+    
+    if p4_zone ~= zone then
     
     text_box6:visible(false)
     
@@ -391,7 +401,9 @@ function DisplayBox()
     text_box7:text(new_text7)
     text_box7:visible(true)
   
-    elseif p5_name == nil then
+    end
+  
+    if p5_zone ~= zone then
     
     text_box7:visible(false)
     
