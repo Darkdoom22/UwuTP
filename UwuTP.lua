@@ -258,6 +258,7 @@ function getinfo()
     p2_name = PartyInfo.p2.name
     p2_hpp = PartyInfo.p2.hpp
     p2_mpp = PartyInfo.p2.mpp
+    p2_zone = PartyInfo.p2.zone
     
     end
     
@@ -267,7 +268,8 @@ function getinfo()
     p3_name = PartyInfo.p3.name
     p3_hpp = PartyInfo.p3.hpp
     p3_mpp = PartyInfo.p3.mpp
-  
+    p3_zone = PartyInfo.p3.zone
+    
     end
     
     if PartyInfo.p4 ~= nil then
@@ -276,7 +278,8 @@ function getinfo()
     p4_name = PartyInfo.p4.name
     p4_hpp = PartyInfo.p4.hpp
     p4_mpp = PartyInfo.p4.mpp
-  
+    p4_zone = PartyInfo.p4.zone
+    
     end
     
     if PartyInfo.p5 ~= nil then
@@ -285,6 +288,7 @@ function getinfo()
     p5_name = PartyInfo.p5.name
     p5_hpp = PartyInfo.p5.hpp
     p5_mpp = PartyInfo.p5.mpp
+    p5_zone = PartyInfo.p5.zone
     
     end 
     
@@ -294,6 +298,7 @@ function getinfo()
     p0_name = PartyInfo.p0.name
     p0_hpp = PartyInfo.p0.hpp
     p0_mpp = PartyInfo.p0.mpp
+    p0_zone = PartyInfo.p0.zone
     
     end 
       
