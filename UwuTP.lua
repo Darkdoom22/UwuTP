@@ -1,6 +1,6 @@
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.0"
+_addon.version = "1.2"
 
 
 res			= require 'resources'
@@ -15,6 +15,9 @@ texts		= require 'texts'
           require 'pack'
           require 'logger'
 config	= require('config')
+
+Enmity = "None"
+action = "None"
 
 -----------------------------------
 defaults = {}
@@ -208,6 +211,60 @@ text_box6 = texts.new(settings.p4)
 text_box7 = texts.new(settings.p5)
 
 
+windower.register_event("incoming chunk", function(id, original, modified, injected, blocked)
+    
+    if id == 0x028 then
+    
+    local p = packets.parse("incoming", original)
+    local actor = windower.ffxi.get_mob_by_id(p["Actor"])
+    local EnemyTarget = windower.ffxi.get_mob_by_id(p["Target 1 ID"])
+    local category = p["Category"]
+    local param = p["Param"]
+  
+    
+      if actor.id == target.id and target ~= nil then
+      
+      Enmity = EnemyTarget.name
+      
+        if category == 1 then
+        
+        action = "Melee"
+        lastaction = action
+        
+        elseif category == 2 then
+        
+        action = "Ranged"
+        lastaction = action
+        
+        elseif category == 8 then
+      
+        action = "Casting Spell"
+        lastaction = action
+        
+        elseif category == 11 then
+        
+        action = "TP Move"
+        lastaction = action
+        
+        end
+    
+    end
+  
+  end
+ 
+end)
+
+windower.register_event("incoming chunk", function(id, data, modified, injected, blocked)
+    
+    if id == 0x02D then
+    
+    Enmity = "None"
+    action = "None"
+    
+  end
+  
+end)  
+
 function round(num, numDecimalPlaces)
   return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
 end
@@ -239,6 +296,7 @@ function getinfo()
   status = CharacterInfo.status
   name = CharacterInfo.name
   zone = CurrentInfo.zone
+  char_id = CharacterInfo.id
   
   local PartyInfo = windower.ffxi.get_party()
     
@@ -552,6 +610,8 @@ function DisplayBox()
     (tostring(target_name)) .. "\n"
     .. "[HP%] " .. target_hpp .. "\n"
     .. "[Distance] " .. round(target_distance, 1) .. "\n"
+    .. "[Enmity] " .. Enmity .. "\n"
+
     
     text_box2:text(new_text2)
     text_box2:visible(true)
