@@ -46,6 +46,31 @@ defaults.player.bg.red = 3
 defaults.player.bg.green = 1
 defaults.player.bg.blue = 1
 
+defaults.playermove = {}
+defaults.playermove.pos = {}
+defaults.playermove.stroke = {}
+defaults.playermove.flags = {}
+defaults.playermove.flags.bold = true
+defaults.playermove.stroke.alpha = 200
+defaults.playermove.stroke.width = 1
+defaults.playermove.stroke.red = 0
+defaults.playermove.stroke.blue = 0
+defaults.playermove.stroke.green = 50
+defaults.playermove.pos.x = 1259
+defaults.playermove.pos.y = 480
+defaults.playermove.text = {}
+defaults.playermove.text.font = 'Segoe UI'
+defaults.playermove.text.size = 11
+defaults.playermove.text.alpha = 255
+defaults.playermove.text.red = 119
+defaults.playermove.text.green = 247
+defaults.playermove.text.blue = 237
+defaults.playermove.bg = {}
+defaults.playermove.bg.alpha = 0
+defaults.playermove.bg.red = 3
+defaults.playermove.bg.green = 1
+defaults.playermove.bg.blue = 1
+
 defaults.p1 = {}
 defaults.p1.pos = {}
 defaults.p1.stroke = {}
@@ -56,7 +81,7 @@ defaults.p1.stroke.width = 1
 defaults.p1.stroke.red = 0
 defaults.p1.stroke.blue = 0
 defaults.p1.stroke.green = 50
-defaults.p1.pos.x = 1359
+defaults.p1.pos.x = 1409
 defaults.p1.pos.y = 403
 defaults.p1.text = {}
 defaults.p1.text.font = 'Segoe UI'
@@ -71,6 +96,31 @@ defaults.p1.bg.red = 3
 defaults.p1.bg.green = 1
 defaults.p1.bg.blue = 1
 
+defaults.p1move = {}
+defaults.p1move.pos = {}
+defaults.p1move.stroke = {}
+defaults.p1move.flags = {}
+defaults.p1move.flags.bold = true
+defaults.p1move.stroke.alpha = 200
+defaults.p1move.stroke.width = 1
+defaults.p1move.stroke.red = 0
+defaults.p1move.stroke.blue = 0
+defaults.p1move.stroke.green = 50
+defaults.p1move.pos.x = 1409
+defaults.p1move.pos.y = 480
+defaults.p1move.text = {}
+defaults.p1move.text.font = 'Segoe UI'
+defaults.p1move.text.size = 11
+defaults.p1move.text.alpha = 255
+defaults.p1move.text.red = 119
+defaults.p1move.text.green = 247
+defaults.p1move.text.blue = 237
+defaults.p1move.bg = {}
+defaults.p1move.bg.alpha = 0
+defaults.p1move.bg.red = 3
+defaults.p1move.bg.green = 1
+defaults.p1move.bg.blue = 1
+
 defaults.p2 = {}
 defaults.p2.pos = {}
 defaults.p2.stroke = {}
@@ -81,7 +131,7 @@ defaults.p2.stroke.width = 1
 defaults.p2.stroke.red = 0
 defaults.p2.stroke.blue = 0
 defaults.p2.stroke.green = 50
-defaults.p2.pos.x = 1459
+defaults.p2.pos.x = 1559
 defaults.p2.pos.y = 403
 defaults.p2.text = {}
 defaults.p2.text.font = 'Segoe UI'
@@ -95,6 +145,31 @@ defaults.p2.bg.alpha = 0
 defaults.p2.bg.red = 3
 defaults.p2.bg.green = 1
 defaults.p2.bg.blue = 1
+
+defaults.p2move = {}
+defaults.p2move.pos = {}
+defaults.p2move.stroke = {}
+defaults.p2move.flags = {}
+defaults.p2move.flags.bold = true
+defaults.p2move.stroke.alpha = 200
+defaults.p2move.stroke.width = 1
+defaults.p2move.stroke.red = 0
+defaults.p2move.stroke.blue = 0
+defaults.p2move.stroke.green = 50
+defaults.p2move.pos.x = 1559
+defaults.p2move.pos.y = 480
+defaults.p2move.text = {}
+defaults.p2move.text.font = 'Segoe UI'
+defaults.p2move.text.size = 11
+defaults.p2move.text.alpha = 255
+defaults.p2move.text.red = 119
+defaults.p2move.text.green = 247
+defaults.p2move.text.blue = 237
+defaults.p2move.bg = {}
+defaults.p2move.bg.alpha = 0
+defaults.p2move.bg.red = 3
+defaults.p2move.bg.green = 1
+defaults.p2move.bg.blue = 1
 
 defaults.p3 = {}
 defaults.p3.pos = {}
@@ -121,6 +196,31 @@ defaults.p3.bg.red = 3
 defaults.p3.bg.green = 1
 defaults.p3.bg.blue = 1
 
+defaults.p3move = {}
+defaults.p3move.pos = {}
+defaults.p3move.stroke = {}
+defaults.p3move.flags = {}
+defaults.p3move.flags.bold = true
+defaults.p3move.stroke.alpha = 200
+defaults.p3move.stroke.width = 1
+defaults.p3move.stroke.red = 0
+defaults.p3move.stroke.blue = 0
+defaults.p3move.stroke.green = 50
+defaults.p3move.pos.x = 1259
+defaults.p3move.pos.y = 580
+defaults.p3move.text = {}
+defaults.p3move.text.font = 'Segoe UI'
+defaults.p3move.text.size = 11
+defaults.p3move.text.alpha = 255
+defaults.p3move.text.red = 119
+defaults.p3move.text.green = 247
+defaults.p3move.text.blue = 237
+defaults.p3move.bg = {}
+defaults.p3move.bg.alpha = 0
+defaults.p3move.bg.red = 3
+defaults.p3move.bg.green = 1
+defaults.p3move.bg.blue = 1
+
 defaults.p4 = {}
 defaults.p4.pos = {}
 defaults.p4.stroke = {}
@@ -131,7 +231,7 @@ defaults.p4.stroke.width = 1
 defaults.p4.stroke.red = 0
 defaults.p4.stroke.blue = 0
 defaults.p4.stroke.green = 50
-defaults.p4.pos.x = 1359
+defaults.p4.pos.x = 1409
 defaults.p4.pos.y = 503
 defaults.p4.text = {}
 defaults.p4.text.font = 'Segoe UI'
@@ -146,6 +246,31 @@ defaults.p4.bg.red = 3
 defaults.p4.bg.green = 1
 defaults.p4.bg.blue = 1
 
+defaults.p4move = {}
+defaults.p4move.pos = {}
+defaults.p4move.stroke = {}
+defaults.p4move.flags = {}
+defaults.p4move.flags.bold = true
+defaults.p4move.stroke.alpha = 200
+defaults.p4move.stroke.width = 1
+defaults.p4move.stroke.red = 0
+defaults.p4move.stroke.blue = 0
+defaults.p4move.stroke.green = 50
+defaults.p4move.pos.x = 1409
+defaults.p4move.pos.y = 580
+defaults.p4move.text = {}
+defaults.p4move.text.font = 'Segoe UI'
+defaults.p4move.text.size = 11
+defaults.p4move.text.alpha = 255
+defaults.p4move.text.red = 119
+defaults.p4move.text.green = 247
+defaults.p4move.text.blue = 237
+defaults.p4move.bg = {}
+defaults.p4move.bg.alpha = 0
+defaults.p4move.bg.red = 3
+defaults.p4move.bg.green = 1
+defaults.p4move.bg.blue = 1
+
 defaults.p5 = {}
 defaults.p5.pos = {}
 defaults.p5.stroke = {}
@@ -156,7 +281,7 @@ defaults.p5.stroke.width = 1
 defaults.p5.stroke.red = 0
 defaults.p5.stroke.blue = 0
 defaults.p5.stroke.green = 50
-defaults.p5.pos.x = 1459
+defaults.p5.pos.x = 1559
 defaults.p5.pos.y = 503
 defaults.p5.text = {}
 defaults.p5.text.font = 'Segoe UI'
@@ -171,6 +296,30 @@ defaults.p5.bg.red = 3
 defaults.p5.bg.green = 1
 defaults.p5.bg.blue = 1
 
+defaults.p5move = {}
+defaults.p5move.pos = {}
+defaults.p5move.stroke = {}
+defaults.p5move.flags = {}
+defaults.p5move.flags.bold = true
+defaults.p5move.stroke.alpha = 200
+defaults.p5move.stroke.width = 1
+defaults.p5move.stroke.red = 0
+defaults.p5move.stroke.blue = 0
+defaults.p5move.stroke.green = 50
+defaults.p5move.pos.x = 1559
+defaults.p5move.pos.y = 580
+defaults.p5move.text = {}
+defaults.p5move.text.font = 'Segoe UI'
+defaults.p5move.text.size = 11
+defaults.p5move.text.alpha = 255
+defaults.p5move.text.red = 119
+defaults.p5move.text.green = 247
+defaults.p5move.text.blue = 237
+defaults.p5move.bg = {}
+defaults.p5move.bg.alpha = 0
+defaults.p5move.bg.red = 3
+defaults.p5move.bg.green = 1
+defaults.p5move.bg.blue = 1
 
 
 defaults.enemy = {}
@@ -197,6 +346,33 @@ defaults.enemy.bg.alpha = 0
 defaults.enemy.bg.red = 3
 defaults.enemy.bg.green = 1
 defaults.enemy.bg.blue = 1
+
+defaults.enemymove = {}
+defaults.enemymove.pos = {}
+defaults.enemymove.stroke = {}
+defaults.enemymove.flags = {}
+defaults.enemymove.flags.bold = true
+defaults.enemymove.stroke.alpha = 200
+defaults.enemymove.stroke.width = 1
+defaults.enemymove.stroke.red = 0
+defaults.enemymove.stroke.blue = 0
+defaults.enemymove.stroke.green = 50
+defaults.enemymove.pos.x = 850
+defaults.enemymove.pos.y = 313
+defaults.enemymove.text = {}
+defaults.enemymove.text.font = 'Segoe UI'
+defaults.enemymove.text.size = 14
+defaults.enemymove.text.alpha = 255
+defaults.enemymove.text.red = 20
+defaults.enemymove.text.green = 177
+defaults.enemymove.text.blue = 250
+defaults.enemymove.bg = {}
+defaults.enemymove.bg.alpha = 0
+defaults.enemymove.bg.red = 3
+defaults.enemymove.bg.green = 1
+defaults.enemymove.bg.blue = 1
+
+
 settings = config.load('data\\settings.xml',defaults)
 
 
@@ -209,6 +385,13 @@ text_box4 = texts.new(settings.p2)
 text_box5 = texts.new(settings.p3)
 text_box6 = texts.new(settings.p4)
 text_box7 = texts.new(settings.p5)
+text_box8 = texts.new(settings.enemymove)
+text_box9 = texts.new(settings.playermove)
+text_box10 = texts.new(settings.p1move)
+text_box11 = texts.new(settings.p2move)
+text_box12 = texts.new(settings.p3move)
+text_box13 = texts.new(settings.p4move)
+text_box14 = texts.new(settings.p5move)
 
 
 windower.register_event("incoming chunk", function(id, original, modified, injected, blocked)
@@ -220,38 +403,243 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
     local EnemyTarget = windower.ffxi.get_mob_by_id(p["Target 1 ID"])
     local category = p["Category"]
     local param = p["Param"]
-  
+    local p_param = p["Target 1 Action 1 Param"]
     
-      if actor.id == target.id and target ~= nil then
+    
+          if actor.id == char_id then
+          
+            if category == 8 then
+          
+            player_spell = res.spells[p_param].en
+          
+            new_text10 = "[MA] " .. player_spell .. "\n"
+            text_box9:text(new_text10)
+            text_box9:color(78, 255, 108)
+            text_box9:visible(true)
+  
+            elseif category == 4 then
+            
+            text_box9:visible(false)
       
+            elseif category == 7 then
+            
+            player_ws = res.weapon_skills[p_param].en
+            new_text11 = "[WS] " .. player_ws .. "\n"
+            text_box9:text(new_text11)
+            text_box9:color(229, 119, 255)
+            text_box9:visible(true)
+            
+            elseif category == 3 then
+            
+             text_box9:visible(false)
+          
+          
+            end
+          
+          end
+        
+        if actor.name == p1_name then
+         
+          if category == 8 then
+        
+          p1_spell = res.spells[p_param].en
+          new_text11 = "[MA] " .. p1_spell .. "\n"
+          text_box10:text(new_text11)
+          text_box10:color(78, 255, 108)
+          text_box10:visible(true)
+          
+          elseif category == 4 then
+          
+          text_box10:visible(false)
+    
+          elseif category == 7 then
+          
+          p1_ws = res.weapon_skills[p_param].en
+          new_text12 = "[WS] " .. p1_ws .. "\n"
+          text_box10:text(new_text11)
+          text_box10:color(229, 119, 255)
+          text_box10:visible(true)
+          
+          elseif category == 3 then
+          
+           text_box10:visible(false)
+          
+          
+          end
+          
+        end
+        
+        if actor.name == p2_name then
+         
+          if category == 8 then
+        
+          p2_spell = res.spells[p_param].en
+          new_text12 = "[MA] " .. p2_spell .. "\n"
+          text_box11:text(new_text12)
+          text_box11:color(78, 255, 108)
+          text_box11:visible(true)
+          
+          elseif category == 4 then
+          
+          text_box11:visible(false)
+    
+          elseif category == 7 then
+          
+          p2_ws = res.weapon_skills[p_param].en
+          new_text13 = "[WS] " .. p2_ws .. "\n"
+          text_box11:text(new_text13)
+          text_box11:color(229, 119, 255)
+          text_box11:visible(true)
+          
+          elseif category == 3 then
+          
+           text_box11:visible(false)
+          
+          
+          end
+          
+        end
+        
+          if actor.name == p3_name then
+         
+          if category == 8 then
+        
+          p3_spell = res.spells[p_param].en
+          new_text13 = "[MA] " .. p3_spell .. "\n"
+          text_box12:text(new_text13)
+          text_box12:color(78, 255, 108)
+          text_box12:visible(true)
+          
+          elseif category == 4 then
+          
+          text_box12:visible(false)
+    
+          elseif category == 7 then
+          
+          p3_ws = res.weapon_skills[p_param].en
+          new_text14 = "[WS] " .. p3_ws .. "\n"
+          text_box12:text(new_text14)
+          text_box12:color(229, 119, 255)
+          text_box12:visible(true)
+          
+          elseif category == 3 then
+          
+           text_box12:visible(false)
+          
+          
+          end
+          
+        end
+        
+          if actor.name == p4_name then
+         
+          if category == 8 then
+        
+          p4_spell = res.spells[p_param].en
+          new_text14 = "[MA] " .. p4_spell .. "\n"
+          text_box13:text(new_text14)
+          text_box13:color(78, 255, 108)
+          text_box13:visible(true)
+          
+          elseif category == 4 then
+          
+          text_box13:visible(false)
+    
+          elseif category == 7 then
+          
+          p4_ws = res.weapon_skills[p_param].en
+          new_text15 = "[WS] " .. p4_ws .. "\n"
+          text_box13:text(new_text15)
+          text_box13:color(229, 119, 255)
+          text_box13:visible(true)
+          
+          elseif category == 3 then
+          
+           text_box13:visible(false)
+          
+          
+          end
+          
+        end
+        
+          if actor.name == p5_name then
+         
+          if category == 8 then
+        
+          p5_spell = res.spells[p_param].en
+          new_text15 = "[MA] " .. p5_spell .. "\n"
+          text_box14:text(new_text15)
+          text_box14:color(78, 255, 108)
+          text_box14:visible(true)
+          
+          elseif category == 4 then
+          
+          text_box14:visible(false)
+    
+          elseif category == 7 then
+          
+          p5_ws = res.weapon_skills[p_param].en
+          new_text16 = "[WS] " .. p5_ws .. "\n"
+          text_box14:text(new_text16)
+          text_box14:color(229, 119, 255)
+          text_box14:visible(true)
+          
+          elseif category == 3 then
+          
+           text_box14:visible(false)
+          
+          
+          end
+          
+          end
+    
+    
+    if target ~= nil then
+    
+      if actor.id == target.id then
+        
       Enmity = EnemyTarget.name
       
         if category == 1 then
         
         action = "Melee"
         lastaction = action
+        text_box8:visible(false)
         
         elseif category == 2 then
         
         action = "Ranged"
         lastaction = action
         
+        --casting start
         elseif category == 8 then
       
         action = "Casting Spell"
         lastaction = action
+        current_spell = res.spells[p_param].en
+        new_text9 = "[Using] " .. current_spell .. "\n"
+        text_box8:text(new_text9)
+        text_box8:visible(true)
+        
+        elseif category == 4 then
+        
+        casting = "Finished"
+        text_box8:visible(false)
         
         elseif category == 11 then
         
         action = "TP Move"
         lastaction = action
-        
+        current_move = res.monster_abilities[param].en
+
+        new_text8 =  "[Using] " .. current_move .. "\n"
+        text_box8:text(new_text8)
+        text_box8:visible(true)
         end
     
-    end
-  
+      end
   end
- 
+ end
 end)
 
 windower.register_event("incoming chunk", function(id, data, modified, injected, blocked)
@@ -260,10 +648,17 @@ windower.register_event("incoming chunk", function(id, data, modified, injected,
     
     Enmity = "None"
     action = "None"
+    text_box8:visible(false)
     
   end
   
 end)  
+
+windower.register_event('zone change', function()
+    
+    Enmity = "None"
+    
+    end)
 
 function round(num, numDecimalPlaces)
   return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
@@ -307,6 +702,7 @@ function getinfo()
     p1_mpp = PartyInfo.p1.mpp
     p1_name = PartyInfo.p1.name
     p1_zone = PartyInfo.p1.zone
+    p1_id = PartyInfo.p1.id
     
     end
     
@@ -317,6 +713,7 @@ function getinfo()
     p2_hpp = PartyInfo.p2.hpp
     p2_mpp = PartyInfo.p2.mpp
     p2_zone = PartyInfo.p2.zone
+    p2_id = PartyInfo.p2.id
     
     end
     
@@ -327,6 +724,7 @@ function getinfo()
     p3_hpp = PartyInfo.p3.hpp
     p3_mpp = PartyInfo.p3.mpp
     p3_zone = PartyInfo.p3.zone
+    p3_id = PartyInfo.p3.id
     
     end
     
@@ -337,6 +735,7 @@ function getinfo()
     p4_hpp = PartyInfo.p4.hpp
     p4_mpp = PartyInfo.p4.mpp
     p4_zone = PartyInfo.p4.zone
+    p4_id = PartyInfo.p4.id
     
     end
     
@@ -347,6 +746,7 @@ function getinfo()
     p5_hpp = PartyInfo.p5.hpp
     p5_mpp = PartyInfo.p5.mpp
     p5_zone = PartyInfo.p5.zone
+    p5_id = PartyInfo.p5.id
     
     end 
     
@@ -616,6 +1016,8 @@ function DisplayBox()
     text_box2:text(new_text2)
     text_box2:visible(true)
     
+
+    
       if target_hpp > 66 then
       text_box2:color(79, 246, 202)
     
@@ -631,13 +1033,10 @@ function DisplayBox()
       
       text_box2:visible(false) 
     
-      end
+    end
   
 end
   
-
-    
-
 
 windower.register_event('prerender', function()
     getinfo()
