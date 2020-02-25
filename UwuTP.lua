@@ -443,8 +443,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           if category == 8 then
         
           p1_spell = res.spells[p_param].en
-          new_text11 = "[MA] " .. p1_spell .. "\n"
-          text_box10:text(new_text11)
+          new_text12 = "[MA] " .. p1_spell .. "\n"
+          text_box10:text(new_text12)
           text_box10:color(78, 255, 108)
           text_box10:visible(true)
           
@@ -452,11 +452,19 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           text_box10:visible(false)
     
-          elseif category == 7 then
+          elseif category == 7 and res.weapon_skills[p_param] <= 255 then
           
           p1_ws = res.weapon_skills[p_param].en
-          new_text12 = "[WS] " .. p1_ws .. "\n"
-          text_box10:text(new_text11)
+          new_text13 = "[WS] " .. p1_ws .. "\n"
+          text_box10:text(new_text13)
+          text_box10:color(229, 119, 255)
+          text_box10:visible(true)
+          
+          elseif category == 7 and res.weapon_skills[p_param] > 255 then
+          
+          p1t_ws = res.monster_abilities[p_param].en
+          new_text13 = "[WS] " .. p1t_ws .. "\n"
+          text_box10:text(new_text13)
           text_box10:color(229, 119, 255)
           text_box10:visible(true)
           
@@ -483,14 +491,23 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           text_box11:visible(false)
     
-          elseif category == 7 then
+          elseif category == 7 and p_param <= 255 then
           
           p2_ws = res.weapon_skills[p_param].en
           new_text13 = "[WS] " .. p2_ws .. "\n"
           text_box11:text(new_text13)
           text_box11:color(229, 119, 255)
           text_box11:visible(true)
+   
           
+          elseif category == 7 and p_param > 255 then
+          
+          p2t_ws = res.monster_abilities[p_param].en
+          new_text14 = "[WS] " .. p2t_ws .. "\n"
+          text_box11:text(new_text14)
+          text_box11:color(229, 119, 255)
+          text_box11:visible(true)
+       
           elseif category == 3 then
           
            text_box11:visible(false)
@@ -505,8 +522,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           if category == 8 then
         
           p3_spell = res.spells[p_param].en
-          new_text13 = "[MA] " .. p3_spell .. "\n"
-          text_box12:text(new_text13)
+          new_text15 = "[MA] " .. p3_spell .. "\n"
+          text_box12:text(new_text15)
           text_box12:color(78, 255, 108)
           text_box12:visible(true)
           
@@ -514,13 +531,22 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           text_box12:visible(false)
     
-          elseif category == 7 then
+          elseif category == 7 and p_param <= 255 then
           
           p3_ws = res.weapon_skills[p_param].en
-          new_text14 = "[WS] " .. p3_ws .. "\n"
-          text_box12:text(new_text14)
+          new_text16 = "[WS] " .. p3_ws .. "\n"
+          text_box12:text(new_text16)
           text_box12:color(229, 119, 255)
           text_box12:visible(true)
+          
+          elseif category == 7 and p_param > 255 then
+          
+          p3_ws = res.monster_abilities[p_param].en
+          new_text17 = "[WS] " .. p3_ws .. "\n"
+          text_box12:text(new_text17)
+          text_box12:color(229, 119, 255)
+          text_box12:visible(true) 
+          
           
           elseif category == 3 then
           
@@ -536,8 +562,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           if category == 8 then
         
           p4_spell = res.spells[p_param].en
-          new_text14 = "[MA] " .. p4_spell .. "\n"
-          text_box13:text(new_text14)
+          new_text18 = "[MA] " .. p4_spell .. "\n"
+          text_box13:text(new_text18)
           text_box13:color(78, 255, 108)
           text_box13:visible(true)
           
@@ -545,13 +571,21 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           text_box13:visible(false)
     
-          elseif category == 7 then
+          elseif category == 7 and p_param <= 255 then
           
           p4_ws = res.weapon_skills[p_param].en
-          new_text15 = "[WS] " .. p4_ws .. "\n"
-          text_box13:text(new_text15)
+          new_text19 = "[WS] " .. p4_ws .. "\n"
+          text_box13:text(new_text19)
           text_box13:color(229, 119, 255)
           text_box13:visible(true)
+          
+          elseif category == 7 and p_param > 255 then
+            
+          p4_ws = res.monster_abilities[p_param].en
+          new_text20 = "[WS] " .. p4_ws .. "\n"
+          text_box13:text(new_text20)
+          text_box13:color(229, 119, 255)
+          text_box13:visible(true)          
           
           elseif category == 3 then
           
@@ -567,8 +601,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           if category == 8 then
         
           p5_spell = res.spells[p_param].en
-          new_text15 = "[MA] " .. p5_spell .. "\n"
-          text_box14:text(new_text15)
+          new_text21 = "[MA] " .. p5_spell .. "\n"
+          text_box14:text(new_text21)
           text_box14:color(78, 255, 108)
           text_box14:visible(true)
           
@@ -576,13 +610,22 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           text_box14:visible(false)
     
-          elseif category == 7 then
+          elseif category == 7 and p_param <= 255 then
           
           p5_ws = res.weapon_skills[p_param].en
-          new_text16 = "[WS] " .. p5_ws .. "\n"
-          text_box14:text(new_text16)
+          new_text22 = "[WS] " .. p5_ws .. "\n"
+          text_box14:text(new_text22)
           text_box14:color(229, 119, 255)
           text_box14:visible(true)
+          
+          elseif category == 7 and p_param > 255 then
+          
+          p5_ws = res.monster_abilities[p_param].en
+          new_text23 = "[WS] " .. p5_ws .. "\n"
+          text_box14:text(new_text23)
+          text_box14:color(229, 119, 255)
+          text_box14:visible(true)
+          
           
           elseif category == 3 then
           
