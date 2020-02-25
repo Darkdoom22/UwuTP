@@ -1,7 +1,7 @@
 # UwuTP
 TP-Party like addon that shows Enemy HP%, Enmity, and Distance, and party member HP%, MP%, and TP in easily adjusted individual text objects.
 
-Also displays WS/Spell usage for both party members and enemies.  There's an issue where songs will occasionally encroach on other text due to length, but that's a fairly minimal issue so I'll fix it in a future update. Some Trust WS will also throw an error due to (I assume) not being in Windower's resources, but those errors can be safely ignored. 
+Also displays WS/Spell usage for both party members and enemies.  
 
 Default settings are for 1920x1200 resolution, players on smaller resolutions will want to adjust x&y positions.
 
@@ -24,4 +24,6 @@ Spells = Green
 Player WS's = Pink
 
 Mob WS's = Blue
+
+
 
