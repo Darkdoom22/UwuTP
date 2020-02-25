@@ -1,5 +1,5 @@
 # UwuTP
-TP-Party like addon that shows Enemy HP% &amp; Distance, and party member HP%, MP%, and TP in easily adjusted individual text objects.
+TP-Party like addon that shows Enemy HP%, Enmity, and Distance, and party member HP%, MP%, and TP in easily adjusted individual text objects.
 
 
 Default settings are for 1920x1200 resolution, players on smaller resolutions will want to adjust x&y positions.
