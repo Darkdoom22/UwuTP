@@ -26,4 +26,4 @@ Player WS's = Pink
 Mob WS's = Blue
 
 
-
+<a href="https://ibb.co/7Gw5SYc"><img src="https://i.ibb.co/D7xy1VX/Screenshot-397.png" alt="Screenshot-397" border="0"></a>
