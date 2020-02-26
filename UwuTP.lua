@@ -697,8 +697,10 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         casting = "Finished"
         text_box8:visible(false)
         
-        elseif category == 11 then
-        
+      elseif category == 11 then
+        local exclusions = {2748, 2749, 2750, 2751, 2752, 2753, 2754, 2755}
+        if param ~= 2750 and param ~= 2749 and param ~= 2751 and param ~= 2752 and param ~= 2753 and param ~=2754 and param ~= 2755 and param ~= 2748 then  
+          
         action = "TP Move"
         lastaction = action
         current_move = res.monster_abilities[param].en
@@ -706,8 +708,9 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         new_text8 =  "[Using] " .. current_move .. "\n"
         text_box8:text(new_text8)
         text_box8:visible(true)
+        
         end
-    
+        end
       end
   end
  end
