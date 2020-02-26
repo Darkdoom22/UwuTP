@@ -18,7 +18,6 @@ config	= require('config')
 
 Enmity = "None"
 action = "None"
-Message_Delay = os.clock()
 
 -----------------------------------
 defaults = {}
