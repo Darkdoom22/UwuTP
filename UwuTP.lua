@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.2"
+_addon.version = "1.4"
 
 
 res			= require 'resources'
@@ -729,7 +729,12 @@ windower.register_event('zone change', function()
     
     Enmity = "None"
     text_box8:visible(false)
-    
+    text_box9:visible(false)
+    text_box10:visible(false)
+    text_box11:visible(false)
+    text_box12:visible(false)
+    text_box13:visible(false)
+    text_box14:visible(false)
     end)
 
 function round(num, numDecimalPlaces)
