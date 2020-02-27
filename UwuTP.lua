@@ -698,9 +698,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         text_box8:visible(false)
         
       elseif category == 11 then
-        local exclusions = {2748, 2749, 2750, 2751, 2752, 2753, 2754, 2755, 2919, 2920, 2921}
-        if param ~= 2750 and param ~= 2749 and param ~= 2748 and param ~= 2919 and param ~= 2920 and param ~= 2921 then  
-          
+        local exclusions = {[2748] = 2748,[2749] = 2749,[2750] = 2750,[2919] = 2919,[2920] = 2920,[2921] = 2921}
+        if not exclusions[param] then
         action = "TP Move"
         lastaction = action
         current_move = res.monster_abilities[param].en
