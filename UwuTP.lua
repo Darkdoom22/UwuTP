@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.5"
+_addon.version = "1.7"
 
 
 res			= require 'resources'
