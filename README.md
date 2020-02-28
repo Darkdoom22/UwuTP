@@ -3,7 +3,7 @@ TP-Party like addon that shows Enemy HP%, Enmity, and Distance, and party member
 
 Also displays WS/Spell usage for both party members and enemies.  
 
-Default settings are for 1920x1200 resolution, players on smaller resolutions will want to adjust x&y positions.
+Default settings are for 1920x1200 resolution, smaller resolutions will default to 1024x768 settings.  If anyone wants default settings for other resolutions just open an issue and I'll get it added. 
 
 Color code defaults:
 
