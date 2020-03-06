@@ -30,10 +30,10 @@ _addon.author = "Uwu/Darkdoom"
 _addon.version = "1.8"
 
 
-res	= require 'resources'
+res			= require 'resources'
 packets	= require 'packets'
-files	= require 'files'
-texts	= require 'texts'
+files		= require 'files'
+texts		= require 'texts'
           require 'strings'
           require 'actions'
           require 'tables'
@@ -42,7 +42,7 @@ texts	= require 'texts'
           require 'pack'
           require 'logger'
 config	= require('config')
-	  require("default_settings")
+require("default_settings")
 exclusions = require("exclusions")
 
 
@@ -55,6 +55,12 @@ S3 = os.clock()
 S4 = os.clock()
 S5 = os.clock()
 E0 = os.clock()
+T0 = os.clock()
+T1 = os.clock()
+T2 = os.clock()
+T3 = os.clock()
+T4 = os.clock()
+T5 = os.clock()
 
 
 settings = (defaults)
@@ -806,7 +812,67 @@ function DisplayBox()
     
     end
    end 
-
+   
+    if tp == 3000 and os.clock() - T0 > 60 then
+      
+    text_box:color(119, 247, 237)
+    
+    elseif tp < 1000 then
+    
+    T0 = os.clock()
+    
+    end
+  
+    if p1_tp == 3000 and os.clock() - T1 > 60 then
+      
+    text_box3:color(119, 247, 237)
+    
+    elseif p1_tp < 1000 then
+    
+    T1 = os.clock()
+    
+    end
+  
+    if p2_tp == 3000 and os.clock() - T2 > 60 then
+      
+    text_box4:color(119, 247, 237)
+    
+    elseif p2_tp < 1000 then
+    
+    T2 = os.clock()
+    
+    end
+  
+    if p3_tp == 3000 and os.clock() - T3 > 60 then
+      
+    text_box5:color(119, 247, 237)
+    
+    elseif p3_tp < 1000 then
+    
+    T3 = os.clock()
+    
+    end
+  
+    if p4_tp == 3000 and os.clock() - T4 > 60 then
+      
+    text_box6:color(119, 247, 237)
+    
+    elseif p4_tp < 1000 then
+    
+    T4 = os.clock()
+    
+    end
+  
+    if p5_tp == 3000 and os.clock() - T5 > 60 then
+      
+    text_box7:color(119, 247, 237)
+    
+    elseif p5_tp < 1000 then
+    
+    T5 = os.clock()
+    
+    end
+  
     text_box:text(new_text)
     text_box:visible(true)
     
