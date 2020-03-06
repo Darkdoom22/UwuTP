@@ -55,17 +55,8 @@ S3 = os.clock()
 S4 = os.clock()
 S5 = os.clock()
 E0 = os.clock()
-T0 = os.clock()
-T1 = os.clock()
-T2 = os.clock()
-T3 = os.clock()
-T4 = os.clock()
-T5 = os.clock()
-
 
 settings = (defaults)
-
-
 
 ---------------------------------
 text_box = texts.new(settings.player)
@@ -160,10 +151,6 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
             coroutine.sleep(1)
             text_box9:visible(false)
           
-            elseif text_box9:visible() == true and os.clock() - S0 > 10 then
-            
-            text_box9:visible(false)
-          
             end
           
           end
@@ -204,10 +191,6 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box10:visible(false)
            
-          elseif text_box10:visible() == true and os.clock() - S1 > 10 then
-         
-          text_box10:visible(false)
-          
           end
           
         end
@@ -248,9 +231,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box11:visible(false)
           
-         elseif text_box11:visible() == true and os.clock() - S2 > 10 then
-         
-         text_box11:visible(false)
+
           
           end
           
@@ -292,10 +273,6 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box12:visible(false)
           
-          elseif text_box12:visible() == true and os.clock() - S3 > 10 then
-          
-          text_box12:visible(false)
-          
           end
           
         end
@@ -334,10 +311,6 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           elseif category == 3 then
            coroutine.sleep(1)
            text_box13:visible(false)
-          
-          elseif text_box13:visible() == true and os.clock() - S4 > 10 then
-         
-          text_box13:visible(false) 
           
           end
           
@@ -379,11 +352,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
          
           coroutine.sleep(1)
           text_box14:visible(false)
-          
-          elseif text_box14:visible() == true and os.clock() - S5 > 10 then
-          
-          text_box14:visible(false)
-          
+                    
           end
           
         end
@@ -433,11 +402,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         new_text8 =  "[Using] " .. current_move .. "\n"
         text_box8:text(new_text8)
         text_box8:visible(true)
-        
-        elseif text_box8:visible() == true and os.clock() - E0 > 10 then
-        
-        text_box8:visible(false)
-       
+      
         end
         
       end
@@ -813,66 +778,8 @@ function DisplayBox()
     end
    end 
    
-    if tp == 3000 and os.clock() - T0 > 60 then
-      
-    text_box:color(119, 247, 237)
-    
-    elseif tp < 1000 then
-    
-    T0 = os.clock()
-    
-    end
-  
-    if p1_tp == 3000 and os.clock() - T1 > 60 then
-      
-    text_box3:color(119, 247, 237)
-    
-    elseif p1_tp < 1000 then
-    
-    T1 = os.clock()
-    
-    end
-  
-    if p2_tp == 3000 and os.clock() - T2 > 60 then
-      
-    text_box4:color(119, 247, 237)
-    
-    elseif p2_tp < 1000 then
-    
-    T2 = os.clock()
-    
-    end
-  
-    if p3_tp == 3000 and os.clock() - T3 > 60 then
-      
-    text_box5:color(119, 247, 237)
-    
-    elseif p3_tp < 1000 then
-    
-    T3 = os.clock()
-    
-    end
-  
-    if p4_tp == 3000 and os.clock() - T4 > 60 then
-      
-    text_box6:color(119, 247, 237)
-    
-    elseif p4_tp < 1000 then
-    
-    T4 = os.clock()
-    
-    end
-  
-    if p5_tp == 3000 and os.clock() - T5 > 60 then
-      
-    text_box7:color(119, 247, 237)
-    
-    elseif p5_tp < 1000 then
-    
-    T5 = os.clock()
-    
-    end
-  
+   
+
     text_box:text(new_text)
     text_box:visible(true)
     
@@ -910,10 +817,63 @@ function DisplayBox()
     end
   
 end
+
+function BoxCheck()
+  
+  if text_box9:visible() == true and os.clock() - S0 > 20 then
+            
+  text_box9:visible(false)
+  S0 = os.clock()
+  
+  end
+
+  if text_box10:visible() == true and os.clock() - S1 > 20 then
+         
+  text_box10:visible(false)
+  S1 = os.clock()
+  
+  end
+
+  if text_box11:visible() == true and os.clock() - S2 > 20 then
+         
+  text_box11:visible(false)
+  S2 = os.clock()
+  
+  end
+
+  if text_box12:visible() == true and os.clock() - S3 > 20 then
+          
+  text_box12:visible(false)
+  S3 = os.clock()
+  
+  end
+
+  if text_box13:visible() == true and os.clock() - S4 > 20 then
+         
+  text_box13:visible(false) 
+  S4 = os.clock()
+  
+  end
+  
+  if text_box14:visible() == true and os.clock() - S5 > 20 then
+          
+  text_box14:visible(false)
+  S5 = os.clock()
+  
+  end
+  
+  if text_box8:visible() == true and os.clock() - E0 > 20 then
+  
+  text_box8:visible(false)
+        
+  end
+      
+end
   
 
 windower.register_event('prerender', function()
     getinfo()
     EnemyInfo()
     DisplayBox()
+    BoxCheck()
     end)
