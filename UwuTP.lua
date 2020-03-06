@@ -27,13 +27,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.7"
+_addon.version = "1.8"
 
 
-res			= require 'resources'
+res	= require 'resources'
 packets	= require 'packets'
-files		= require 'files'
-texts		= require 'texts'
+files	= require 'files'
+texts	= require 'texts'
           require 'strings'
           require 'actions'
           require 'tables'
@@ -42,12 +42,20 @@ texts		= require 'texts'
           require 'pack'
           require 'logger'
 config	= require('config')
-require("default_settings")
+	  require("default_settings")
 exclusions = require("exclusions")
 
 
 Enmity = "None"
 action = "None"
+S0 = os.clock()
+S1 = os.clock()
+S2 = os.clock()
+S3 = os.clock()
+S4 = os.clock()
+S5 = os.clock()
+E0 = os.clock()
+
 
 settings = (defaults)
 
@@ -117,7 +125,6 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
     local param = p["Param"]
     local p_param = p["Target 1 Action 1 Param"]
     
-    
           if actor.id == char_id then
           
             if category == 8 then
@@ -128,9 +135,10 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
             text_box9:text(new_text10)
             text_box9:color(78, 255, 108)
             text_box9:visible(true)
-  
+            
             elseif category == 4 then
             
+            S0 = os.clock()
             text_box9:visible(false)
       
             elseif category == 7 then
@@ -143,15 +151,18 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
             
             elseif category == 3 then
               
-             coroutine.sleep(1)
-             text_box9:visible(false)
+            coroutine.sleep(1)
+            text_box9:visible(false)
           
+            elseif text_box9:visible() == true and os.clock() - S0 > 10 then
+            
+            text_box9:visible(false)
           
             end
           
           end
         
-        if actor.name == p1_name then
+        if actor.id == p1_id then
          
           if category == 8 then
         
@@ -161,10 +172,12 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           text_box10:color(78, 255, 108)
           text_box10:visible(true)
           
-          elseif category == 4 then
           
+          elseif category == 4 then
+         
+          S1 = os.clock()
           text_box10:visible(false)
-    
+          
           elseif category == 7 and p_param <= 255 then
           
           p1_ws = res.weapon_skills[p_param].name
@@ -184,13 +197,16 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           elseif category == 3 then
            coroutine.sleep(1)
            text_box10:visible(false)
-          
+           
+          elseif text_box10:visible() == true and os.clock() - S1 > 10 then
+         
+          text_box10:visible(false)
           
           end
           
         end
         
-        if actor.name == p2_name then
+        if actor.id == p2_id then
          
           if category == 8 then
         
@@ -202,6 +218,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           elseif category == 4 then
           
+          S2 = os.clock()
           text_box11:visible(false)
     
           elseif category == 7 and p_param <= 255 then
@@ -225,12 +242,15 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box11:visible(false)
           
+         elseif text_box11:visible() == true and os.clock() - S2 > 10 then
+         
+         text_box11:visible(false)
           
           end
           
         end
         
-          if actor.name == p3_name then
+        if actor.id == p3_id then
          
           if category == 8 then
         
@@ -242,6 +262,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           elseif category == 4 then
           
+          S3 = os.clock()
           text_box12:visible(false)
     
           elseif category == 7 and p_param <= 255 then
@@ -265,12 +286,15 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box12:visible(false)
           
+          elseif text_box12:visible() == true and os.clock() - S3 > 10 then
+          
+          text_box12:visible(false)
           
           end
           
         end
         
-          if actor.name == p4_name then
+        if actor.id == p4_id then
          
           if category == 8 then
         
@@ -282,6 +306,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           elseif category == 4 then
           
+          S4 = os.clock() 
           text_box13:visible(false)
     
           elseif category == 7 and p_param <= 255 then
@@ -304,12 +329,15 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
            coroutine.sleep(1)
            text_box13:visible(false)
           
+          elseif text_box13:visible() == true and os.clock() - S4 > 10 then
+         
+          text_box13:visible(false) 
           
           end
           
         end
         
-          if actor.name == p5_name then
+        if actor.id == p5_id then
          
           if category == 8 then
         
@@ -320,7 +348,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           text_box14:visible(true)
           
           elseif category == 4 then
-          
+         
+          S5 = os.clock()
           text_box14:visible(false)
     
           elseif category == 7 and p_param <= 255 then
@@ -341,13 +370,17 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
           
           
           elseif category == 3 then
-           coroutine.sleep(1)
-           text_box14:visible(false)
+         
+          coroutine.sleep(1)
+          text_box14:visible(false)
           
+          elseif text_box14:visible() == true and os.clock() - S5 > 10 then
+          
+          text_box14:visible(false)
           
           end
           
-          end
+        end
     
     
     if target ~= nil then
@@ -367,38 +400,48 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         action = "Ranged"
         lastaction = action
         
-        --casting start
+        
         elseif category == 8 then
       
         action = "Casting Spell"
         lastaction = action
-        current_spell = res.spells[p_param].en
+        current_spell = res.spells[p_param].name
         new_text9 = "[Using] " .. current_spell .. "\n"
         text_box8:text(new_text9)
         text_box8:visible(true)
         
         elseif category == 4 then
         
+        E0 = os.clock()
+        coroutine.sleep(1)
         casting = "Finished"
         text_box8:visible(false)
         
-      elseif category == 11 then
+        elseif category == 11 then
 
-        
         if not exclusions[param] then
+        
         action = "TP Move"
         lastaction = action
-        current_move = res.monster_abilities[param].en
-
+        current_move = res.monster_abilities[param].name
         new_text8 =  "[Using] " .. current_move .. "\n"
         text_box8:text(new_text8)
         text_box8:visible(true)
         
+        elseif text_box8:visible() == true and os.clock() - E0 > 10 then
+        
+        text_box8:visible(false)
+       
         end
-        end
+        
       end
+    
+    end
+  
   end
+ 
  end
+
 end)
 
 windower.register_event("incoming chunk", function(id, data, modified, injected, blocked)
@@ -468,8 +511,7 @@ function getinfo()
     p1_mpp = PartyInfo.p1.mpp
     p1_name = PartyInfo.p1.name
     p1_zone = PartyInfo.p1.zone
-    p1_id = PartyInfo.p1.id
-    
+    p1_id = PartyInfo.p1.mob.id
     end
     
     if PartyInfo.p2 ~= nil then
@@ -479,7 +521,7 @@ function getinfo()
     p2_hpp = PartyInfo.p2.hpp
     p2_mpp = PartyInfo.p2.mpp
     p2_zone = PartyInfo.p2.zone
-    p2_id = PartyInfo.p2.id
+    p2_id = PartyInfo.p2.mob.id
     
     end
     
@@ -490,7 +532,7 @@ function getinfo()
     p3_hpp = PartyInfo.p3.hpp
     p3_mpp = PartyInfo.p3.mpp
     p3_zone = PartyInfo.p3.zone
-    p3_id = PartyInfo.p3.id
+    p3_id = PartyInfo.p3.mob.id
     
     end
     
@@ -501,7 +543,7 @@ function getinfo()
     p4_hpp = PartyInfo.p4.hpp
     p4_mpp = PartyInfo.p4.mpp
     p4_zone = PartyInfo.p4.zone
-    p4_id = PartyInfo.p4.id
+    p4_id = PartyInfo.p4.mob.id
     
     end
     
@@ -512,7 +554,7 @@ function getinfo()
     p5_hpp = PartyInfo.p5.hpp
     p5_mpp = PartyInfo.p5.mpp
     p5_zone = PartyInfo.p5.zone
-    p5_id = PartyInfo.p5.id
+    p5_id = PartyInfo.p5.mob.id
     
     end 
     
