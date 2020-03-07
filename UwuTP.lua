@@ -482,7 +482,9 @@ function getinfo()
     p1_mpp = PartyInfo.p1.mpp
     p1_name = PartyInfo.p1.name
     p1_zone = PartyInfo.p1.zone
+    if PartyInfo.p1.mob ~= nil then
     p1_id = PartyInfo.p1.mob.id
+    end
     end
     
     if PartyInfo.p2 ~= nil then
@@ -492,8 +494,9 @@ function getinfo()
     p2_hpp = PartyInfo.p2.hpp
     p2_mpp = PartyInfo.p2.mpp
     p2_zone = PartyInfo.p2.zone
+    if PartyInfo.p2.mob ~= nil then
     p2_id = PartyInfo.p2.mob.id
-    
+    end
     end
     
     if PartyInfo.p3 ~= nil then
@@ -503,8 +506,9 @@ function getinfo()
     p3_hpp = PartyInfo.p3.hpp
     p3_mpp = PartyInfo.p3.mpp
     p3_zone = PartyInfo.p3.zone
+    if PartyInfo.p3.mob ~= nil then
     p3_id = PartyInfo.p3.mob.id
-    
+    end
     end
     
     if PartyInfo.p4 ~= nil then
@@ -514,8 +518,9 @@ function getinfo()
     p4_hpp = PartyInfo.p4.hpp
     p4_mpp = PartyInfo.p4.mpp
     p4_zone = PartyInfo.p4.zone
+    if PartyInfo.p4.mob ~= nil then
     p4_id = PartyInfo.p4.mob.id
-    
+    end
     end
     
     if PartyInfo.p5 ~= nil then
@@ -525,8 +530,9 @@ function getinfo()
     p5_hpp = PartyInfo.p5.hpp
     p5_mpp = PartyInfo.p5.mpp
     p5_zone = PartyInfo.p5.zone
+    if PartyInfo.p5.mob ~= nil then
     p5_id = PartyInfo.p5.mob.id
-    
+    end
     end 
     
     if PartyInfo.p0 ~= nil then
