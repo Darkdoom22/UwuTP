@@ -83,6 +83,7 @@ windower.register_event('load', function()
     if windower.get_windower_settings().x_res < 1920 then
       text_box:pos(734, 300) -- Player 0
       text_box2:pos(471, 176) --Enemy
+      text_box15:pos(271, 176) --Movelist
       text_box8:pos(471, 270) --Enemy Move
       text_box9:pos(734, 377) --Player 0 Move
       text_box3:pos(884, 300) --Player 1
