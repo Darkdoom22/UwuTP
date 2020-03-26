@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.8"
+_addon.version = "1.8.1"
 
 
 res			= require 'resources'
@@ -45,7 +45,7 @@ config	= require('config')
 require("default_settings")
 exclusions = require("exclusions")
 
-
+Move_List = {}
 Enmity = "None"
 action = "None"
 S0 = os.clock()
@@ -73,6 +73,7 @@ text_box11 = texts.new(settings.p2move)
 text_box12 = texts.new(settings.p3move)
 text_box13 = texts.new(settings.p4move)
 text_box14 = texts.new(settings.p5move)
+text_box15 = texts.new(settings.movelist)
 
 
         
@@ -108,7 +109,6 @@ windower.register_event('load', function()
       text_box:update()
     end
   end)
-
 
 
 windower.register_event("incoming chunk", function(id, original, modified, injected, blocked)
@@ -384,6 +384,8 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         new_text9 = "[Using] " .. current_spell .. "\n"
         text_box8:text(new_text9)
         text_box8:visible(true)
+        table.insert(Move_List, current_spell)
+        
         
         elseif category == 4 then
         
@@ -402,7 +404,10 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         new_text8 =  "[Using] " .. current_move .. "\n"
         text_box8:text(new_text8)
         text_box8:visible(true)
-      
+        table.insert(Move_List, current_move)
+        
+        
+            
         end
         
       end
@@ -422,6 +427,7 @@ windower.register_event("incoming chunk", function(id, data, modified, injected,
     Enmity = "None"
     action = "None"
     text_box8:visible(false)
+ 
     
   end
   
@@ -547,10 +553,53 @@ function getinfo()
       
     elseif CurrentInfo.logged_in ~= true then
     
-    end
+  end
+
 
 end
 
+function BuildMoveList()
+        
+    if target ~= nil then
+    
+    local ph = "[No Moves Used]"
+    text_box15:text(ph)
+    text_box15:color(192, 192, 192)
+    text_box15:update()
+    text_box15:visible(true)
+    local current_string =  " ~ Has Used ~ "
+    
+    for k, v in pairs(Move_List) do
+    
+    move_text = v 
+    current_string = current_string..'\n['..v..']'
+    box_text = current_string 
+    text_box15:text(box_text)
+    text_box15:color(216, 239, 255)
+    text_box15:update()
+    text_box15:visible(true)
+    
+      if #Move_List > 15 then
+    
+      Move_List = {}
+    
+      end
+    
+    end
+    
+  end
+    
+  if target == nil then
+  
+  Move_List = {}
+  current_string = '[No Target]'
+  text_box15:text(current_string)
+  text_box15:update()
+  text_box15:visible(false)
+  
+  end
+  
+end
 
 function DisplayBox()
   
@@ -882,4 +931,5 @@ windower.register_event('prerender', function()
     EnemyInfo()
     DisplayBox()
     BoxCheck()
+    BuildMoveList()
     end)
