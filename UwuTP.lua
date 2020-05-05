@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.8.1"
+_addon.version = "1.8.3"
 
 
 res			= require 'resources'
@@ -44,6 +44,7 @@ texts		= require 'texts'
 config	= require('config')
 require("default_settings")
 exclusions = require("exclusions")
+Distance_Helper = require("Distance_Helper")
 
 Move_List = {}
 Enmity = "None"
@@ -74,9 +75,14 @@ text_box12 = texts.new(settings.p3move)
 text_box13 = texts.new(settings.p4move)
 text_box14 = texts.new(settings.p5move)
 text_box15 = texts.new(settings.movelist)
+text_box16 = texts.new(settings.p1dist)
+text_box17 = texts.new(settings.p2dist)
+text_box18 = texts.new(settings.p3dist)
+text_box19 = texts.new(settings.p4dist)
+text_box20 = texts.new(settings.p5dist)
 
 
-        
+    
 
 windower.register_event('load', function()
 
@@ -96,6 +102,16 @@ windower.register_event('load', function()
       text_box12:pos(884, 477) --Player 3 move
       text_box13:pos(734, 577) --Player 4 move
       text_box14:pos(884, 577) --Player 5 move
+      text_box16:pos(974, 339) --Player 1 distance
+      text_box17:pos(814, 439) --Player 2 distance
+      text_box18:pos(974, 439) --Player 3 distance
+      text_box19:pos(814, 539) --Player 4 distance
+      text_box20:pos(974, 539) --Player 5 distance
+      text_box16:update()
+      text_box17:update()
+      text_box18:update()
+      text_box19:update()
+      text_box20:update()
       text_box3:update()
       text_box10:update()
       text_box11:update()
@@ -123,7 +139,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
     local param = p["Param"]
     local p_param = p["Target 1 Action 1 Param"]
     
-          if actor.id == char_id then
+          if actor.id == char_id and actor ~= nil then
           
             if category == 8 then
           
@@ -605,6 +621,16 @@ end
 function DisplayBox()
   
   local p1tp = p1_tp
+  local p1dist = Distance_Helper.distance(p1_id)
+  local p1distr = round(p1dist, 0)
+  local p2dist = Distance_Helper.distance(p2_id)
+  local p2distr = round(p2dist, 0)
+  local p3dist = Distance_Helper.distance(p3_id)
+  local p3distr = round(p3dist, 0)
+  local p4dist = Distance_Helper.distance(p4_id)
+  local p4distr = round(p4dist, 0)
+  local p5dist = Distance_Helper.distance(p5_id)
+  local p5distr = round(p5dist, 0)
    
   new_text = 
   name .. "\n"
@@ -620,6 +646,10 @@ function DisplayBox()
     .. "[MP%] " .. p1_mpp .. "\n"
     .. "[TP] " .. p1_tp .. "\n"
     
+    dist_text1 = "[D]" .. p1distr .. "\n"
+    
+    text_box16:text(dist_text1)
+    text_box16:visible(true)
     text_box3:text(new_text3)
     text_box3:visible(true)
     
@@ -627,6 +657,7 @@ function DisplayBox()
     
     if p1_zone ~= zone then
     
+    text_box16:visible(false)
     text_box3:visible(false)
     
     end
@@ -639,6 +670,10 @@ function DisplayBox()
     .. "[MP%] " .. p2_mpp .. "\n"
     .. "[TP] " .. p2_tp .. "\n"
     
+    dist2_text = "[D]" .. p2distr .. "\n"
+    
+    text_box17:text(dist2_text)
+    text_box17:visible(true)
     text_box4:text(new_text4)
     text_box4:visible(true)
   
@@ -646,6 +681,7 @@ function DisplayBox()
     
     if p2_zone ~= zone then
   
+    text_box17:visible(false)
     text_box4:visible(false)
   
     end  
@@ -658,6 +694,10 @@ function DisplayBox()
     .. "[MP%] " .. p3_mpp .. "\n"
     .. "[TP] " .. p3_tp .. "\n"
     
+    dist3_text = "[D]" .. p3distr .. "\n"
+    
+    text_box18:text(dist3_text)
+    text_box18:visible(true)
     text_box5:text(new_text5)
     text_box5:visible(true)
  
@@ -665,6 +705,7 @@ function DisplayBox()
     
     if p3_zone ~= zone then
     
+    text_box18:visible(false)
     text_box5:visible(false)
     
     end  
@@ -677,6 +718,10 @@ function DisplayBox()
     .. "[MP%] " .. p4_mpp .. "\n"
     .. "[TP] " .. p4_tp .. "\n"
     
+    dist4_text = "[D]" .. p4distr .. "\n"
+    
+    text_box19:text(dist4_text)
+    text_box19:visible(true)
     text_box6:text(new_text6)
     text_box6:visible(true)
     
@@ -684,6 +729,7 @@ function DisplayBox()
     
     if p4_zone ~= zone then
     
+    text_box19:visible(false)
     text_box6:visible(false)
     
     end  
@@ -696,6 +742,10 @@ function DisplayBox()
     .. "[MP%] " .. p5_mpp .. "\n"
     .. "[TP] " .. p5_tp .. "\n"
     
+    dist5_text = "[D]" .. p5distr .. "\n"
+    
+    text_box20:text(dist5_text)
+    text_box20:visible(true)
     text_box7:text(new_text7)
     text_box7:visible(true)
   
@@ -703,9 +753,83 @@ function DisplayBox()
   
     if p5_zone ~= zone then
     
+    text_box20:visible(false)
     text_box7:visible(false)
     
     end  
+  
+  
+    if p1dist > 20 then
+      
+      text_box16:color(255, 0, 127)
+    
+    elseif p1dist < 14.9 then
+      
+      text_box16:color(119, 247, 237)
+    
+    elseif p1dist > 15 and p1dist <= 19.9 then
+      
+      text_box16:color(255, 248, 21)
+      
+    end
+    
+    
+    if p2dist > 20 then
+      
+      text_box17:color(255, 0, 127)
+    
+    elseif p2dist < 14.9 then
+      
+      text_box17:color(119, 247, 237)
+    
+    elseif p2dist > 15 and p2dist <= 19.9 then
+      
+      text_box17:color(255, 248, 21)
+    
+    end
+    
+    
+    if p3dist > 20 then
+      
+      text_box18:color(255, 0, 127)
+    
+    elseif p3dist < 14.9 then
+      
+      text_box18:color(119, 247, 237)
+    
+    elseif p3dist > 15 and p3dist <= 19.9 then
+      
+      text_box18:color(255, 248, 21)
+  
+    end
+  
+    if p4dist > 20 then
+      
+      text_box19:color(255, 0, 127)
+  
+    elseif p4dist < 14.9 then
+      
+      text_box19:color(119, 247, 237)
+    
+    elseif p4dist > 15 and p4dist <= 19.9 then
+      
+      text_box19:color(255, 248, 21)
+      
+    end
+  
+    if p5dist > 20 then
+      
+      text_box20:color(255, 0, 127)
+  
+    elseif p5dist < 14.9 then
+      
+      text_box20:color(119, 247, 237)
+    
+    elseif p5dist > 15 and p5dist <= 19.9 then
+      
+      text_box20:color(255, 248, 21)
+  
+    end
   
     if hpp < 33 then
   
