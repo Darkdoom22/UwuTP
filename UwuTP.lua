@@ -27,24 +27,23 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]--
 
 _addon.name = "UwuTP"
 _addon.author = "Uwu/Darkdoom"
-_addon.version = "1.8.3"
+_addon.version = "1.9.0"
 
 
-res			= require 'resources'
-packets	= require 'packets'
-files		= require 'files'
-texts		= require 'texts'
+local res			= require 'resources'
+local packets	= require 'packets'
+local files		= require 'files'
+local texts		= require 'texts'
           require 'strings'
           require 'actions'
           require 'tables'
-          require 'sets'
-          require 'chat'
-          require 'pack'
-          require 'logger'
 config	= require('config')
 require("default_settings")
-exclusions = require("exclusions")
 Distance_Helper = require("Distance_Helper")
+
+local res_mobabi_safe = setmetatable(res.monster_abilities, {__index = function(t, k)
+  return {name = "AoE Melee"}
+end})
 
 Move_List = {}
 Enmity = "None"
@@ -85,7 +84,6 @@ text_box20 = texts.new(settings.p5dist)
     
 
 windower.register_event('load', function()
-
     if windower.get_windower_settings().x_res < 1920 then
       text_box:pos(734, 300) -- Player 0
       text_box2:pos(471, 176) --Enemy
@@ -102,7 +100,7 @@ windower.register_event('load', function()
       text_box12:pos(884, 477) --Player 3 move
       text_box13:pos(734, 577) --Player 4 move
       text_box14:pos(884, 577) --Player 5 move
-      text_box16:pos(974, 339) --Player 1 distance
+      text_box16:pos(974, 339) --Player 1 distance 
       text_box17:pos(814, 439) --Player 2 distance
       text_box18:pos(974, 439) --Player 3 distance
       text_box19:pos(814, 539) --Player 4 distance
@@ -133,7 +131,7 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
     if id == 0x028 then
     
     local p = packets.parse("incoming", original)
-    local actor = windower.ffxi.get_mob_by_id(p["Actor"])
+    local actor = windower.ffxi.get_mob_by_id(p["Actor"]) or {id=0}
     local EnemyTarget = windower.ffxi.get_mob_by_id(p["Target 1 ID"])
     local category = p["Category"]
     local param = p["Param"]
@@ -412,21 +410,16 @@ windower.register_event("incoming chunk", function(id, original, modified, injec
         text_box8:visible(false)
         
         elseif category == 11 then
-
-        if not exclusions[param] then
-        
+    
         action = "TP Move"
         lastaction = action
-        current_move = res.monster_abilities[param].name
+        --current_move = res.monster_abilities[param].name
+        current_move = res_mobabi_safe[param].name
         new_text8 =  "[Using] " .. current_move .. "\n"
         text_box8:text(new_text8)
         text_box8:visible(true)
         table.insert(Move_List, current_move)
-        
-        
-            
-        end
-        
+              
       end
     
     end
@@ -466,6 +459,11 @@ function round(num, numDecimalPlaces)
   return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
 end
 
+function lpad(str, len, char)
+  if char == nil then char = ' ' end
+  return string.rep(char, len - #str) .. str
+end
+
 function EnemyInfo()
   
   target = windower.ffxi.get_mob_by_target('t')
@@ -499,15 +497,19 @@ function getinfo()
   local PartyInfo = windower.ffxi.get_party()
     
     if PartyInfo.p1 ~= nil then
+      
+      p1_tp = PartyInfo.p1.tp
+      p1_hpp = PartyInfo.p1.hpp
+      p1_mpp = PartyInfo.p1.mpp
+      p1_name = PartyInfo.p1.name
+      p1_zone = PartyInfo.p1.zone
+
+      if PartyInfo.p1.mob ~= nil then
+        
+        p1_id = PartyInfo.p1.mob.id
+      
+      end
     
-    p1_tp = PartyInfo.p1.tp
-    p1_hpp = PartyInfo.p1.hpp
-    p1_mpp = PartyInfo.p1.mpp
-    p1_name = PartyInfo.p1.name
-    p1_zone = PartyInfo.p1.zone
-    if PartyInfo.p1.mob ~= nil then
-    p1_id = PartyInfo.p1.mob.id
-    end
     end
     
     if PartyInfo.p2 ~= nil then
@@ -631,20 +633,20 @@ function DisplayBox()
   local p4distr = round(p4dist, 0)
   local p5dist = Distance_Helper.distance(p5_id)
   local p5distr = round(p5dist, 0)
-   
+
   new_text = 
   name .. "\n"
-  .. "[HP%] " .. hpp .. "\n"
-  .. "[MP%] " .. mpp .. "\n"
-  .. "[TP] " .. tp .. "\n"
+  .. "[HP%] " .. lpad(tostring(hpp), 2) .. "\n"
+  .. "[MP%] " .. lpad(tostring(mpp), 2) .. "\n"
+  .. "[TP] " .. lpad(tostring(tp), #tostring(tp)+1) .. "\n"
 
     if p1_name ~= nil then    
     
     new_text3 = 
     p1_name .. "\n"
-    .. "[HP%] " .. p1_hpp .. "\n"
-    .. "[MP%] " .. p1_mpp .. "\n"
-    .. "[TP] " .. p1_tp .. "\n"
+    .. "[HP%] " .. lpad(tostring(p1_hpp), 2) .. "\n"
+    .. "[MP%] " .. lpad(tostring(p1_mpp), 2) .. "\n"
+    .. "[TP] " .. lpad(tostring(p1_tp), #tostring(p1_tp)+1) .. "\n"
     
     dist_text1 = "[D]" .. p1distr .. "\n"
     
@@ -666,9 +668,9 @@ function DisplayBox()
     
     new_text4 = 
     p2_name .. "\n"
-    .. "[HP%] " .. p2_hpp .. "\n"
-    .. "[MP%] " .. p2_mpp .. "\n"
-    .. "[TP] " .. p2_tp .. "\n"
+    .. "[HP%] " .. lpad(tostring(p2_hpp), 2) .. "\n"
+    .. "[MP%] " .. lpad(tostring(p2_mpp), 2) .. "\n"
+    .. "[TP] " .. lpad(tostring(p2_tp), #tostring(p2_tp)+1) .. "\n"
     
     dist2_text = "[D]" .. p2distr .. "\n"
     
@@ -690,9 +692,9 @@ function DisplayBox()
      
     new_text5 = 
     p3_name .. "\n"
-    .. "[HP%] " .. p3_hpp .. "\n"
-    .. "[MP%] " .. p3_mpp .. "\n"
-    .. "[TP] " .. p3_tp .. "\n"
+    .. "[HP%] " .. lpad(tostring(p3_hpp), 2) .. "\n"
+    .. "[MP%] " .. lpad(tostring(p3_mpp), 2) .. "\n"
+    .. "[TP] " .. lpad(tostring(p3_tp), #tostring(p3_tp)+1) .. "\n"
     
     dist3_text = "[D]" .. p3distr .. "\n"
     
@@ -714,9 +716,9 @@ function DisplayBox()
      
     new_text6 = 
     p4_name .. "\n"
-    .. "[HP%] " .. p4_hpp .. "\n"
-    .. "[MP%] " .. p4_mpp .. "\n"
-    .. "[TP] " .. p4_tp .. "\n"
+    .. "[HP%] " .. lpad(tostring(p4_hpp), 2) .. "\n"
+    .. "[MP%] " .. lpad(tostring(p4_mpp), 2) .. "\n"
+    .. "[TP] " .. lpad(tostring(p4_tp), #tostring(p4_tp)+1) .. "\n"
     
     dist4_text = "[D]" .. p4distr .. "\n"
     
@@ -738,9 +740,9 @@ function DisplayBox()
      
     new_text7 = 
     p5_name .. "\n"
-    .. "[HP%] " .. p5_hpp .. "\n"
-    .. "[MP%] " .. p5_mpp .. "\n"
-    .. "[TP] " .. p5_tp .. "\n"
+    .. "[HP%] " .. lpad(tostring(p5_hpp), 2) .. "\n"
+    .. "[MP%] " .. lpad(tostring(p5_mpp), 2) .. "\n"
+    .. "[TP] " .. lpad(tostring(p5_tp), #tostring(p5_tp)+1) .. "\n"
     
     dist5_text = "[D]" .. p5distr .. "\n"
     
@@ -969,9 +971,9 @@ function DisplayBox()
     
     new_text2 = 
     (tostring(target_name)) .. "\n"
-    .. "[HP%] " .. target_hpp .. "\n"
-    .. "[Distance] " .. round(target_distance, 1) .. "\n"
-    .. "[Enmity] " .. Enmity .. "\n"
+    .. "[HP%] " .. lpad(tostring(target_hpp), #tostring(target_hpp)+5) .. "\n"
+    .. "[Distance] " .. lpad(tostring(round(target_distance, 1)), #tostring(round(target_distance, 1))) .. "\n"
+    .. "[Enmity] " .. lpad(Enmity, #Enmity+2) .. "\n"
 
     
     text_box2:text(new_text2)
