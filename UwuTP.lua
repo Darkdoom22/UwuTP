@@ -30,14 +30,14 @@ _addon.author = "Uwu/Darkdoom"
 _addon.version = "1.9.0"
 
 
-local res			= require 'resources'
+local res	= require 'resources'
 local packets	= require 'packets'
-local files		= require 'files'
-local texts		= require 'texts'
-          require 'strings'
-          require 'actions'
-          require 'tables'
-config	= require('config')
+local files	= require 'files'
+local texts	= require 'texts'
+          	  require 'strings'
+          	  require 'actions'
+          	  require 'tables'
+config	= 	  require('config')
 require("default_settings")
 Distance_Helper = require("Distance_Helper")
 
