@@ -1,6 +1,3 @@
-
-
------------------------------------
 defaults = {}
 defaults.player = {}
 defaults.player.pos = {}
